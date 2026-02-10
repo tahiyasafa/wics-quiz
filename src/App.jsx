@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
+
 const questions = [
   {
     question: "Which language is used for web styling?",
