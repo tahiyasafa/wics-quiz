@@ -27,3 +27,19 @@ button {
   cursor: pointer;
   background: #e6e9ff;
 }
+
+.home,
+.quiz,
+.result {
+  text-align: center;
+}
+
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topic-button {
+  width: 100%;
+}
