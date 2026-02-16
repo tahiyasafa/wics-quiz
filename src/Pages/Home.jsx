@@ -8,8 +8,9 @@ function Home({ onSelectTopic }) {
     <div className="home">
       <h1>WiCS Quiz Game</h1>
       <img
-        src="/logo.png"
+        src="logo.png"
         className="logo"
+        alt="WiCS Logo"
       />
       <p>Select a topic to begin</p>
 
