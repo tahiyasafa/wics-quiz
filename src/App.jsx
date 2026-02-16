@@ -1,5 +1,4 @@
-// src/App.jsx
-
+import './App.css';
 import { useState } from "react";
 import Home from "./Pages/Home";
 import Quiz from "./Pages/Quiz";
