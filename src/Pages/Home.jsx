@@ -7,6 +7,10 @@ function Home({ onSelectTopic }) {
   return (
     <div className="home">
       <h1>WiCS Quiz Game</h1>
+      <img
+        src="/public/logo.png"
+        className="logo"
+      />
       <p>Select a topic to begin</p>
 
       <div className="topic-list">
