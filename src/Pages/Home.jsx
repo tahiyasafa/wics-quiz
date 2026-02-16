@@ -14,6 +14,7 @@ function Home({ onSelectTopic }) {
           <button
             key={topic.key}
             className="topic-button"
+            onClick={() => onSelectTopic(topic.key)}
           >
             {topic.label}
           </button>
