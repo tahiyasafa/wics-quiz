@@ -1,75 +1,60 @@
+// src/App.jsx
+
 import { useState } from "react";
-import "./App.css";
+import Home from "./Pages/Home";
+import Quiz from "./Pages/Quiz";
+import Result from "./Pages/Result";
 
+import linuxQuestions from "./data/linux";
+import cppQuestions from "./data/cpp";
 
-const questions = [
-  {
-    question: "Which language is used for web styling?",
-    options: ["HTML", "CSS", "JavaScript", "Python"],
-    answer: "CSS",
-  },
-  {
-    question: "What does CPU stand for?",
-    options: [
-      "Central Process Unit",
-      "Central Processing Unit",
-      "Computer Personal Unit",
-      "Central Power Unit",
-    ],
-    answer: "Central Processing Unit",
-  },
-  {
-    question: "Which company created React?",
-    options: ["Google", "Microsoft", "Meta", "Amazon"],
-    answer: "Meta",
-  },
-];
+const questionSets = {
+  linux: linuxQuestions,
+  cpp: cppQuestions,
+};
 
 function App() {
-  const [index, setIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState("home");
+  const [selectedTopic, setSelectedTopic] = useState(null);
   const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
 
-  const handleClick = (option) => {
-    if (option === questions[index].answer) {
-      setScore((prev) => prev + 1);
-    }
-
-    if (index + 1 < questions.length) {
-      setIndex(index + 1);
-    } else {
-      setFinished(true);
-    }
+  const startQuiz = (topicKey) => {
+    setSelectedTopic(topicKey);
+    setScore(0);
+    setCurrentPage("quiz");
   };
 
-  const restart = () => {
-    setIndex(0);
+  const finishQuiz = (finalScore) => {
+    setScore(finalScore);
+    setCurrentPage("result");
+  };
+
+  const goHome = () => {
+    setCurrentPage("home");
+    setSelectedTopic(null);
     setScore(0);
-    setFinished(false);
   };
 
   return (
     <div className="app">
-      <h1>WiCS Kickstart Quiz 💜</h1>
+      {currentPage === "home" && (
+        <Home onSelectTopic={startQuiz} />
+      )}
 
-      {finished ? (
-        <div>
-          <h2>Your Score</h2>
-          <p>{score} / {questions.length}</p>
-          <button onClick={restart}>Play Again</button>
-        </div>
-      ) : (
-        <>
-          <h2>{questions[index].question}</h2>
-          {questions[index].options.map((opt, i) => (
-            <button key={i} onClick={() => handleClick(opt)}>
-              {opt}
-            </button>
-          ))}
-          <p>
-            Question {index + 1} of {questions.length}
-          </p>
-        </>
+      {currentPage === "quiz" && (
+        <Quiz
+          questions={questionSets[selectedTopic]}
+          topic={selectedTopic}
+          onFinish={finishQuiz}
+        />
+      )}
+
+      {currentPage === "result" && (
+        <Result
+          score={score}
+          total={questionSets[selectedTopic].length}
+          onRestart={goHome}
+        />
       )}
     </div>
   );
