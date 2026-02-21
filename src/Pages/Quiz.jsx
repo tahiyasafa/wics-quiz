@@ -70,9 +70,8 @@ function Quiz({ questions, topic, onFinish }) {
         Question {currentIndex + 1} of {questions.length}
       </p>
 
-      {/* Timer display */}
       <div className="timer-container">
-        <div className={`timer ${timeLeft <= 2 ? 'timer-danger' : ''}`}>
+        <div className={"timer ${timeLeft <= 2 ? 'timer-danger' : ''}"}>
           {timeLeft}s
         </div>
       </div>
