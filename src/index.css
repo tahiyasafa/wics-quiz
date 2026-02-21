@@ -58,3 +58,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Mobile responsive design for buttons */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  button {
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    font-size: 14px;
+  }
+}

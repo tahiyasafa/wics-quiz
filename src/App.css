@@ -108,3 +108,78 @@ button {
     box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
   }
 }
+
+/* Mobile responsive design */
+@media (max-width: 480px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .site-header {
+    padding-top: 60px;
+  }
+
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  .app {
+    max-width: 100%;
+    padding: 16px;
+    margin: 10px auto 0 auto;
+    border-radius: 8px;
+  }
+
+  button {
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    max-width: 70px;
+    max-height: 70px;
+  }
+
+  .cookie {
+    width: 60px;
+  }
+
+  .timer {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    border-width: 3px;
+  }
+
+  .timer-container {
+    margin: 15px 0;
+  }
+}
+
+/* Tablet responsive design */
+@media (min-width: 481px) and (max-width: 768px) {
+  .site-header {
+    padding-top: 120px;
+  }
+
+  .site-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .app {
+    max-width: 90%;
+  }
+}
