@@ -1,12 +1,12 @@
 const topics = [
-  { key: "linux", label: "Linux 🐧" },
-  { key: "cpp", label: "C++ 💻" },
+  { key: "linux", label: "linux.png" },
+  { key: "cpp", label: "c.png" },
 ];
 
 function Home({ onSelectTopic }) {
   return (
     <div className="home">
-      <h1>WiCS Quiz Game</h1>
+      <h1>WiCS Quiz</h1>
       <img
         src="logo.png"
         className="logo"
@@ -20,7 +20,7 @@ function Home({ onSelectTopic }) {
             className="topic-button"
             onClick={() => onSelectTopic(topic.key)}
           >
-            {topic.label}
+            < img src={topic.label} alt="Logo button" style={{ width: '50px', height: '50px' }}></img>
           </button>
         ))}
       </div>
