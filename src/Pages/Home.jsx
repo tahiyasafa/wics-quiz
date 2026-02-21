@@ -10,7 +10,6 @@ function Home({ onSelectTopic }) {
       <img
         src="logo.png"
         className="logo"
-        alt="WiCS Logo"
       />
       <p>Select a topic to begin</p>
 
