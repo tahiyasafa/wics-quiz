@@ -17,7 +17,7 @@ function Result({ score, total }) {
         <img src="sad.png" className="cookie" />
         </>
       )}
-      <button onClick={() => window.location.reload()}>Try Again</button>
+      <button onClick={() => window.location.reload()}>Try Again ↻</button>
       </div>
     </div>
   );
