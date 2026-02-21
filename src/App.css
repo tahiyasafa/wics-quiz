@@ -6,8 +6,6 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   min-height: 100vh;
-
-  /* keep background fixed */
   background-attachment: fixed;
 }
 
@@ -18,7 +16,7 @@ body {
   border-radius: 12px;
   text-align: center;
   background-color: white;
-  margin: 20px auto 0 auto; /* horizontal centering only */
+  margin: 20px auto 0 auto;
 }
 
 button {
@@ -37,7 +35,7 @@ button {
 }
 
 .site-header {
-  padding-top: 200px; /* moves header down without affecting background */
+  padding-top: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +55,6 @@ button {
   margin: 0 auto;
 }
 
-/* Timer styling */
 .timer-container {
   margin: 20px 0;
 }

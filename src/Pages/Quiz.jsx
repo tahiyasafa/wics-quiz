@@ -7,18 +7,10 @@ function Quiz({ questions, topic, onFinish }) {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(8);
   const [answered, setAnswered] = useState(false);
-  const [finalScore, setFinalScore] = useState(null);
 
   const currentQuestion = questions[currentIndex];
 
-  // Check if quiz is finished and call onFinish with final score
-  useEffect(() => {
-    if (finalScore !== null) {
-      onFinish(finalScore);
-    }
-  }, [finalScore, onFinish]);
-
-  // Timer effect
+  // Timer countdown effect
   useEffect(() => {
     if (answered) return; // Stop timer if already answered
 
@@ -34,7 +26,7 @@ function Quiz({ questions, topic, onFinish }) {
     if (timeLeft === 0 && !answered) {
       setAnswered(true);
       setTimeout(() => {
-        handleNextQuestion();
+        moveToNext();
       }, 500);
     }
   }, [timeLeft, answered]);
@@ -45,25 +37,28 @@ function Quiz({ questions, topic, onFinish }) {
     setAnswered(false);
   }, [currentIndex]);
 
+  const moveToNext = () => {
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < questions.length) {
+      setCurrentIndex(nextIndex);
+    } else {
+      onFinish(score);
+    }
+  };
+
   const handleAnswerClick = (selectedOption) => {
     setAnswered(true);
     if (selectedOption === currentQuestion.answer) {
       setScore((prev) => prev + 1);
     }
 
-    // Delay before moving to next question for visual feedback
-    setTimeout(() => {
-      handleNextQuestion();
-    }, 500);
-  };
-
-  const handleNextQuestion = () => {
     const nextIndex = currentIndex + 1;
 
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
     } else {
-      setFinalScore(score);
+      onFinish(score + (selectedOption === currentQuestion.answer ? 1 : 0));
     }
   };
 
