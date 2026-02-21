@@ -6,7 +6,6 @@ const topics = [
 function Home({ onSelectTopic }) {
   return (
     <div className="home">
-      <h1>WiCS Quiz</h1>
       <img
         src="logo.png"
         className="logo"

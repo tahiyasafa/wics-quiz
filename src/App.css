@@ -5,20 +5,20 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
+
+  /* keep background fixed */
+  background-attachment: fixed;
 }
 
 .app {
   width: 100%;
-  min-width: 420px;
-  margin: 0;
-  background: white;
+  max-width: 420px;
   padding: 24px;
   border-radius: 12px;
   text-align: center;
+  background-color: white;
+  margin: 20px auto 0 auto; /* horizontal centering only */
 }
 
 button {
@@ -36,9 +36,21 @@ button {
   max-height: 100px;
 }
 
-/* cookie image styling */
+.site-header {
+  padding-top: 200px; /* moves header down without affecting background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-header h1 {
+  margin: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  font-size: 3.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
 .cookie {
-  /* make the cookie smaller while maintaining aspect ratio */
   width: 80px;
   height: auto;
   display: block;

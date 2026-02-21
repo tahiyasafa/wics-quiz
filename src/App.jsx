@@ -35,7 +35,11 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <>
+      <header className="site-header">
+        <h1>WiCS Quiz</h1>
+      </header>
+      <div className="app">
       {currentPage === "home" && (
         <Home onSelectTopic={startQuiz} />
       )}
@@ -55,7 +59,8 @@ function App() {
           onRestart={goHome}
         />
       )}
-    </div>
+      </div>
+    </>
   );
 }
 
